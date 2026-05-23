@@ -1,0 +1,60 @@
+﻿@model CMS.Data.Entities.Post
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<div class="container mt-4">
+    <h3>✏️ Sửa bài viết</h3>
+
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+
+        @Html.AntiForgeryToken()
+
+        <!-- QUAN TRỌNG -->
+        <input type="hidden" asp-for="Id" />
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <!-- TITLE -->
+        <div class="mb-3">
+            <label>Tiêu đề</label>
+            <input asp-for="Title" class="form-control" />
+        </div>
+
+        <!-- CONTENT -->
+        <div class="mb-3">
+            <label>Nội dung</label>
+            <textarea asp-for="Content" class="form-control"></textarea>
+        </div>
+
+        <!-- CATEGORY -->
+        <div class="mb-3">
+            <label>Danh mục</label>
+            <select asp-for="CategoryId" asp-items="ViewBag.CategoryList" class="form-select"></select>
+        </div>
+
+        <!-- ẢNH CŨ -->
+        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+        {
+            <div class="mb-3">
+                <label>Ảnh hiện tại</label><br />
+                <img src="@Model.ImageUrl" width="200" class="rounded shadow" />
+            </div>
+        }
+
+        <!-- UPLOAD ẢNH MỚI -->
+        <div class="mb-3">
+            <label>Chọn ảnh mới (nếu muốn đổi)</label>
+            <input type="file" name="uploadImage" class="form-control" />
+        </div>
+
+        <!-- BUTTON -->
+        <button class="btn btn-success">💾 Cập nhật</button>
+        <a asp-action="Index" class="btn btn-secondary">⬅ Quay lại</a>
+
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

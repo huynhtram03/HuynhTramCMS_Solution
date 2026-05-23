@@ -1,0 +1,72 @@
+﻿@model CMS.Data.Entities.User
+
+@{
+    ViewData["Title"] = "Xoá User";
+}
+
+<div class="container mt-5">
+    <div class="card shadow border-0">
+
+        <!-- HEADER -->
+        <div class="card-header bg-danger text-white">
+            <h4 class="mb-0">🗑 Xoá người dùng</h4>
+        </div>
+
+        <!-- BODY -->
+        <div class="card-body">
+
+            <div class="alert alert-danger text-center">
+                ⚠️ Bạn có chắc chắn muốn xoá user này?
+            </div>
+
+            <!-- THÔNG TIN USER -->
+            <table class="table table-bordered">
+                <tr>
+                    <th style="width: 30%">ID</th>
+                    <td>@Model.Id</td>
+                </tr>
+                <tr>
+                    <th>Tên đăng nhập</th>
+                    <td>@Model.Username</td>
+                </tr>
+                <tr>
+                    <th>Họ và tên</th>
+                    <td>@Model.FullName</td>
+                </tr>
+                <tr>
+                    <th>Quyền</th>
+                    <td>
+                        @if (Model.Role == "Administrator")
+                        {
+                            <span class="badge bg-danger">@Model.Role</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-info text-dark">@Model.Role</span>
+                        }
+                    </td>
+                </tr>
+            </table>
+
+            <!-- FORM XOÁ -->
+            <form asp-action="Delete" method="post">
+
+                @Html.AntiForgeryToken()
+
+                <input type="hidden" asp-for="Id" />
+
+                <div class="d-flex justify-content-between">
+                    <a asp-action="Index" class="btn btn-secondary">
+                        ⬅ Huỷ
+                    </a>
+
+                    <button type="submit" class="btn btn-danger">
+                        🗑 Xoá
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>

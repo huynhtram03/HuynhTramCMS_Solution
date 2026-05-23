@@ -1,0 +1,60 @@
+﻿@model CMS.Data.Entities.CategoryProduct
+
+@{
+    ViewData["Title"] = "Chi tiết Category Product";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+
+        <!-- HEADER -->
+        <div class="card-header bg-info text-white">
+            <h4 class="mb-0">📄 Chi tiết Category Product</h4>
+        </div>
+
+        <!-- BODY -->
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    ID:
+                </div>
+                <div class="col-md-9">
+                    @Model.Id
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    Tên:
+                </div>
+                <div class="col-md-9">
+                    @Model.Name
+                </div>
+            </div>
+
+            @* Nếu có Description thì mở ra *@
+            @*
+            <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+            Mô tả:
+            </div>
+            <div class="col-md-9">
+            @Model.Description
+            </div>
+            </div>
+            *@
+        </div>
+
+        <!-- FOOTER -->
+        <div class="card-footer d-flex justify-content-between">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+                ✏️ Sửa
+            </a>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                ⬅ Quay lại
+            </a>
+        </div>
+
+    </div>
+</div>

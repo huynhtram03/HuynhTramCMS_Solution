@@ -1,5 +1,11 @@
+﻿using Microsoft.EntityFrameworkCore;
+using CMS.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
+// 👉 Đăng ký DbContext
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

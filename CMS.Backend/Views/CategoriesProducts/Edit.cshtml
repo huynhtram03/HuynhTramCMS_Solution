@@ -1,0 +1,21 @@
+﻿@model CMS.Data.Entities.CategoryProduct
+
+@{
+    ViewData["Title"] = "Sửa Category Product";
+}
+
+<h2>Sửa</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label>Tên</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-warning">Cập nhật</button>
+    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+</form>

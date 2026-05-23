@@ -1,0 +1,14 @@
+﻿@model CMS.Data.Entities.CategoryProduct
+
+@{
+    ViewData["Title"] = "Chi tiết";
+}
+
+<h2>Chi tiết</h2>
+
+<div>
+    <p><strong>ID:</strong> @Model.Id</p>
+    <p><strong>Tên:</strong> @Model.Name</p>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Quay lại</a>

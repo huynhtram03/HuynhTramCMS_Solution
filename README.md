@@ -104,6 +104,4 @@ Project CMS.Data: 8 Entity + comment chuyên nghiệp.
 Project CMS.Backend: MVC, Category/Post/User Controller + View theo tài liệu.
 Project cms.frontend: Create React App, trang thông tin SV + dữ liệu mẫu.
 Cấu hình HTTPS port 7150, .gitignore loại bin/, obj/, node_modules/.
-7. Tác giả & bản quyền
-Dương Đào Huỳnh Như — MSSV: 2122110580 — Cao đẳng Công thương
-Đồ án môn Chuyên đề ASP.NET — Năm 2026.
+
